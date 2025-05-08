@@ -1,17 +1,9 @@
 import React from "react";
+import styles from "_not-found.module.scss";
 
 const NotFoundPage = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        textAlign: "center",
-      }}
-    >
+    <div className={styles["not-found-container"]}>
       <h1
         style={{
           fontSize: "8rem",

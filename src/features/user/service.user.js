@@ -1,11 +1,11 @@
 import { API_METHODS } from "shared/utils";
 import apiPath from "./endpoint.user";
-import RequestService from "services/request.service";
+import RequestService from "shared/axios";
 import {
   CreateUserModel,
   SearchUserModel,
   UpdateUserModel,
-} from "./user.model";
+} from "./model.user";
 
 class UserService {
   #service = null;

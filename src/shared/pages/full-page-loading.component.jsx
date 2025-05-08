@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import { useSelector } from "react-redux";
+import styles from "./_loading.module.scss";
 
 const FullPageLoading = (props) => {
   const {
@@ -17,7 +18,7 @@ const FullPageLoading = (props) => {
   }
   // }
 
-  let opacityNum = 0.3;
+  let opacityNum = 0.9;
   if (opacity) {
     // allow caller to change opacity
     opacityNum = opacity;
@@ -29,17 +30,11 @@ const FullPageLoading = (props) => {
   }
 
   const backgroundColor = {
-    backgroundColor: `rgba(128, 128, 128, ${opacityNum})`,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: 10000,
+    backgroundColor: `rgba(225, 225, 225, ${opacityNum})`,
   };
 
   const loadingPanel = (
-    <div style={backgroundColor}>
+    <div style={backgroundColor} className={styles["lds-ellipsis"]}>
       <div />
       <div />
       <div />

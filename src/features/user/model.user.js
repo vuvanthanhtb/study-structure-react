@@ -1,4 +1,4 @@
-import { AttrModel } from "shared/utils";
+import AttrModel from "shared/model/attr.model";
 
 export const SearchUserModel = [
   new AttrModel("passenger_name", "passenger_name", true),
