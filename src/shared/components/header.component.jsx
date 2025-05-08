@@ -1,4 +1,4 @@
-const HeaderLayout = () => {
+const HeaderComponent = () => {
   return (
     <header>
       <h1>Header Layout</h1>
@@ -6,4 +6,4 @@ const HeaderLayout = () => {
   );
 };
 
-export default HeaderLayout;
+export default HeaderComponent;

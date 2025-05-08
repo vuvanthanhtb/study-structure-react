@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import HeaderLayout from "./header.layout";
+import HeaderComponent from "../components/header.component";
+import SidebarComponent from "../components/sidebar.component";
 import { getCurrentUser, hasAnyRequiredRole } from "shared/cache";
 import { authRouteConfig } from "app/routes/config";
+import styles from"./private.module.scss";
 
 const PrivateLayout = (props) => {
   const { allowedRoles, children, title = "App 12345" } = props;
@@ -20,20 +22,22 @@ const PrivateLayout = (props) => {
   if (!isAllow) {
     return (
       <div>
-        <HeaderLayout />
+        <HeaderComponent />
         <div>
           Bạn không có quyền truy cập vào trang này, vui lòng liên hệ quản trị
           viên
         </div>
-        <FooterLayout />
       </div>
     );
   }
 
   return (
-    <div>
-      <HeaderLayout />
-      <main>{children}</main>
+    <div className={styles["private-container"]}>
+      <HeaderComponent />
+      <div className={styles["main-container"]}>
+        <SidebarComponent />
+        <main>{children}</main>
+      </div>
     </div>
   );
 };

@@ -2,11 +2,11 @@ import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import PrivateLayout from "shared/layout/private.layout";
 import { userRouteConfig, authRouteConfig, homeRouteConfig } from "./config";
-import FullPageLoading from "shared/components/full-page-loading.component";
+import FullPageLoading from "shared/pages/full-page-loading.component";
 import BootStrapper from "./boot-strapper";
 
 const NotFoundPage = lazy(() =>
-  import("shared/components/not-found.component")
+  import("shared/pages/not-found.component")
 );
 
 const LoginPage = lazy(() => import("features/auth/page/login.page"));
