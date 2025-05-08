@@ -1,11 +1,10 @@
-import "./styles/index.scss";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import App from "./App.jsx";
 import { persistor, store } from "./app/store";
+import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
