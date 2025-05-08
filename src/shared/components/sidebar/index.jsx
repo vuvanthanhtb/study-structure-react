@@ -1,6 +1,8 @@
+import styles from "./sidebar.module.scss";
+
 const SidebarComponent = () => {
   return (
-    <div className="sidebar">
+    <div className={styles["sidebar-container"]}>
       <ul>
         <li>Home</li>
         <li>Dashboard</li>

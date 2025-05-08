@@ -1,6 +1,8 @@
+import styles from "./header.module.scss";
+
 const HeaderComponent = () => {
   return (
-    <header>
+    <header className={styles["header-container"]}>
       <h1>Header Layout</h1>
     </header>
   );

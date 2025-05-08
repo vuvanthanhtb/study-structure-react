@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import HeaderComponent from "../components/header.component";
-import SidebarComponent from "../components/sidebar.component";
+import HeaderComponent from "../components/header";
+import SidebarComponent from "../components/sidebar";
 import { getCurrentUser, hasAnyRequiredRole } from "shared/cache";
 import { authRouteConfig } from "app/routes/config";
 import styles from"./private.module.scss";
