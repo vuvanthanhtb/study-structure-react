@@ -1,4 +1,4 @@
-import AttrModel from "shared/utils/attr.model";
+import { AttrModel } from "shared/utils";
 
 export const loginModel = [
   new AttrModel("username", "username", true),

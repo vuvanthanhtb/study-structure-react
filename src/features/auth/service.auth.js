@@ -1,4 +1,4 @@
-import API_METHODS from "shared/utils/api-method";
+import {API_METHODS} from "shared/utils";
 import apiPath from "./endpoint.auth";
 import RequestService from "services/request.service";
 import { loginModel } from "./model.auth";

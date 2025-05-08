@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import HeaderComponent from "../components/header";
-import SidebarComponent from "../components/sidebar";
+import { HeaderComponent, SidebarComponent } from "../components";
 import { getCurrentUser, hasAnyRequiredRole } from "shared/cache";
 import { authRouteConfig } from "app/routes/config";
-import styles from"./private.module.scss";
+import styles from "./private.module.scss";
 
 const PrivateLayout = (props) => {
   const { allowedRoles, children, title = "App 12345" } = props;

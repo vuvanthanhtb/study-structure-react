@@ -1,4 +1,4 @@
-const ATTR_TYPE = {
+export const ATTR_TYPE = {
   STRING: "string",
   NUMBER: "number",
   BOOLEAN: "boolean",
@@ -11,5 +11,3 @@ const ATTR_TYPE = {
   SYMBOL: "symbol",
   BIGINT: "bigint",
 };
-
-export default ATTR_TYPE;

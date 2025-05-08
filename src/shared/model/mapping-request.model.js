@@ -1,5 +1,5 @@
 import { DateTime } from "luxon";
-import ATTR_TYPE from "../utils/attr-data-type";
+import { ATTR_TYPE } from "../utils";
 
 const mappingRequest = (model, data) => {
   if (!data) {
@@ -24,9 +24,7 @@ const mappingRequest = (model, data) => {
       }
     } else {
       if (item.isRequired) {
-        throw new Error(
-          `Thiếu trường: ${item.client} trong dữ liệu yêu cầu`
-        );
+        throw new Error(`Thiếu trường: ${item.client} trong dữ liệu yêu cầu`);
       }
     }
   });

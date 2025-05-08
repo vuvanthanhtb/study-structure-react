@@ -1,4 +1,4 @@
-import API_METHODS from "shared/utils/api-method";
+import { API_METHODS } from "shared/utils";
 import apiPath from "./endpoint.user";
 import RequestService from "services/request.service";
 import {
@@ -42,13 +42,13 @@ class UserService {
     }
   };
 
-  delete = async (data) => {
+  detail = async (data) => {
     try {
       const response = await this.#service.methodRequest(
-        apiPath.delete,
+        apiPath.detail,
         data,
         null,
-        API_METHODS.DELETE
+        API_METHODS.GET
       );
       return response;
     } catch (error) {

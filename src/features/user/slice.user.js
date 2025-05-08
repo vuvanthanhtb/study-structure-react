@@ -34,10 +34,10 @@ export const updateUser = createAsyncThunk(
   }
 );
 
-export const deleteUser = createAsyncThunk(
-  "users/deleteUser",
+export const detailUser = createAsyncThunk(
+  "users/detailUser",
   async (payload, thunkAPI) => {
-    const data = await service.delete(payload);
+    const data = await service.detail(payload);
     thunkAPI.dispatch(searchUsers());
     return data;
   }

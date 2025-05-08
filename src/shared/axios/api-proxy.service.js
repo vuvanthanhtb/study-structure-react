@@ -1,6 +1,5 @@
 import axios from "axios";
-import API_METHODS from "shared/utils/api-method";
-import { SYSTEM_BUSY } from "shared/utils/message";
+import { API_METHODS, SYSTEM_BUSY } from "shared/utils";
 import { authRouteConfig } from "app/routes/config";
 
 class ApiProxyService {

@@ -1,5 +1,4 @@
-import ATTR_TYPE from "../utils/attr-data-type";
-import { DATE_FORMAT_YYYY_MM_DD_HH_MM } from "../utils/date-format";
+import { ATTR_TYPE, DATE_FORMAT_YYYY_MM_DD_HH_MM } from "../utils";
 
 class AttrModel {
   constructor(
