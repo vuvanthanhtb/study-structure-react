@@ -11,8 +11,9 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import loadingReducer, { startLoading, stopLoading } from "./loading.slice";
-import authReducer from "features/auth/slice.auth";
-import userReducer from "features/user/slice.user";
+import authReducer from "modules/auth/slice.auth";
+import itsdReducer from "modules/itsd/slice.itsd";
+import commonReducer from "modules/common/slice.common";
 
 const loadingMiddleware = (storeAPI) => (next) => (action) => {
   if (action.type.endsWith("/pending")) {
@@ -29,14 +30,15 @@ const loadingMiddleware = (storeAPI) => (next) => (action) => {
 const rootReducer = combineReducers({
   app: loadingReducer,
   auth: authReducer,
-  user: userReducer,
+  itsd: itsdReducer,
+  common: commonReducer
 });
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["auth"],
+  whitelist: [],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

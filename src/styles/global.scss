@@ -1,0 +1,21 @@
+@import 'bootstrap/scss/bootstrap';
+
+// $primary-color: #007bff;
+// $secondary-color: #6c757d;
+// $success-color: #28a745;
+// $error-color: #dc3545;
+
+// $padding-base: 1rem;
+// $border-radius: 6px;
+
+// $font-main: 'Roboto', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div#root {
+  background-color: #8080802b;
+}

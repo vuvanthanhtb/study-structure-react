@@ -1,5 +1,4 @@
 import ReactDOM from "react-dom";
-import React from "react";
 import { useSelector } from "react-redux";
 import styles from "./_loading.module.scss";
 

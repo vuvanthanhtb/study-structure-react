@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_METHODS, SYSTEM_BUSY } from "shared/utils";
-import { authRouteConfig } from "app/routes/config";
+import { authRouteConfig } from "shared/routes";
 
 class ApiProxyService {
   #axios_instance = null;
@@ -10,9 +10,12 @@ class ApiProxyService {
   };
 
   constructor() {
+    const baseURL = import.meta.env.VITE_API_URL;
+    console.log(11111111, {baseURL});
+    
     this.#axios_instance = axios.create({
-      baseURL: import.meta.env.VITE_APP_SERVER,
-      timeout: 1000,
+      baseURL,
+      timeout: 10 * 60 * 1000,
       withCredentials: true,
     });
 

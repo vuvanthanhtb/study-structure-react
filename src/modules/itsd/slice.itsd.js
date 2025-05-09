@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import UserService from "./service.user";
+import ItsdService from "./service.itsd";
 
-const service = new UserService();
+const service = new ItsdService();
 
 export const searchUsers = createAsyncThunk(
-  "users/searchUsers",
+  "itsd/searchUsers",
   async (payload) => {
-    console.log("Fetching tickets...");
+    console.log(999999, "Fetching tickets...");
     const data = await service.search(payload);
     return data;
   }
 );
 
 export const createNewUser = createAsyncThunk(
-  "users/createNewUser",
+  "itsd/createNewUser",
   async (payload, thunkAPI) => {
     const data = await service.create(payload);
     if (data && data.id) {
@@ -24,7 +24,7 @@ export const createNewUser = createAsyncThunk(
 );
 
 export const updateUser = createAsyncThunk(
-  "users/updateUser",
+  "itsd/updateUser",
   async (payload, thunkAPI) => {
     const data = await service.update(payload);
     if (data && data.id) {
@@ -35,7 +35,7 @@ export const updateUser = createAsyncThunk(
 );
 
 export const detailUser = createAsyncThunk(
-  "users/detailUser",
+  "itsd/detailUser",
   async (payload, thunkAPI) => {
     const data = await service.detail(payload);
     thunkAPI.dispatch(searchUsers());
@@ -48,8 +48,8 @@ const initialState = {
   user: null,
 };
 
-const userSlice = createSlice({
-  name: "user",
+const itsdSlice = createSlice({
+  name: "itsd",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -65,4 +65,4 @@ const userSlice = createSlice({
   },
 });
 
-export default userSlice.reducer;
+export default itsdSlice.reducer;

@@ -1,13 +1,13 @@
 import { API_METHODS } from "shared/utils";
-import apiPath from "./endpoint.user";
+import apiPath from "./endpoint.itsd";
 import RequestService from "shared/axios";
 import {
   CreateUserModel,
   SearchUserModel,
   UpdateUserModel,
-} from "./model.user";
+} from "./model.itsd";
 
-class UserService {
+class ItsdService {
   #service = null;
 
   constructor() {
@@ -56,11 +56,11 @@ class UserService {
     }
   };
 
-  search = async (data) => {
+  search = async () => {
     try {
       const response = await this.#service.methodRequest(
         apiPath.search,
-        data,
+        null,
         SearchUserModel,
         API_METHODS.GET
       );
@@ -71,4 +71,4 @@ class UserService {
   };
 }
 
-export default UserService;
+export default ItsdService;

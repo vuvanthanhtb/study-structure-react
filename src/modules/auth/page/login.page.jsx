@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { getCurrentToken } from "shared/cache";
-import { homeRouteConfig } from "app/routes/config";
+import { homeRouteConfig } from "shared/routes";
 
 const LoginPage = () => {
   if (getCurrentToken()) {

@@ -1,0 +1,50 @@
+.table-container {
+  background: white;
+  padding: 20px;
+
+  .cell-string {
+    text-align: left;
+  }
+
+  .cell-number {
+    text-align: right;
+  }
+
+  table {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+
+    th {
+      border-right: 1px solid #dee2e6;
+    }
+
+    thead {
+      th {
+        background: #FAFAFB;
+      }
+    }
+  }
+
+  .btn-group {
+    margin-bottom: 10px;
+    display: flex;
+
+    .btn-export {
+      background: #EEFFF4;
+      color: #00B74F;
+      margin-left: 10px;
+    }
+  }
+
+  .table-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 15px;
+
+    .table-footer__result {
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+}

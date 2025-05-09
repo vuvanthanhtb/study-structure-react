@@ -1,28 +1,24 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import PrivateLayout from "shared/layout/private.layout";
-import { userRouteConfig, authRouteConfig, homeRouteConfig } from "./config";
+import {
+  userRouteConfig,
+  authRouteConfig,
+  homeRouteConfig,
+} from "shared/routes";
 import FullPageLoading from "shared/pages/full-page-loading.page";
 import BootStrapper from "./boot-strapper";
 
-const NotFoundPage = lazy(() =>
-  import("shared/pages/not-found.page")
-);
+const NotFoundPage = lazy(() => import("shared/pages/not-found.page"));
 
-const LoginPage = lazy(() => import("features/auth/page/login.page"));
-const HomePage = lazy(() => import("features/home/page"));
+const LoginPage = lazy(() => import("modules/auth/page/login.page"));
+const HomePage = lazy(() => import("modules/home/page"));
 const SearchUsersPage = lazy(() =>
-  import("features/user/page/search-users.page")
+  import("modules/itsd/page/search-users.page")
 );
-const CreateUserPage = lazy(() =>
-  import("features/user/page/create-user.page")
-);
-const UpdateUserPage = lazy(() =>
-  import("features/user/page/update-user.page")
-);
-const DetailUserPage = lazy(() =>
-  import("features/user/page/detail-user.page")
-);
+const CreateUserPage = lazy(() => import("modules/itsd/page/create-user.page"));
+const UpdateUserPage = lazy(() => import("modules/itsd/page/update-user.page"));
+const DetailUserPage = lazy(() => import("modules/itsd/page/detail-user.page"));
 
 const AppRoutes = (props) => {
   useEffect(() => {
