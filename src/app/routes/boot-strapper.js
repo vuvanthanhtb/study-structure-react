@@ -9,17 +9,13 @@ class BootStrapper {
     console.log("BootStrapper initialized with app:");
   }
 
-  static async setDataToRunApplicationInLocal() {
+  static async setDataToRunApplicationInLocal(username = "admin") {
     console.log("Setting data to run application in local");
-    const condition = false;
-    if (condition) {
-      setCurrentUserRoles(["admin", "user"]);
-      setCurrentToken("dG9rZW4gcmVhY3RqCg==");
-      setCurrentUser({
-        username: "admin",
-        password: "1234",
-      });
-    }
+    setCurrentUserRoles(["admin", "user"]);
+    setCurrentToken("dG9rZW4gcmVhY3RqCg==");
+    setCurrentUser({
+      username,
+    });
   }
 }
 

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter, Outlet } from "react-router-dom";
 import PrivateLayout from "shared/layout/private.layout";
@@ -8,7 +8,6 @@ import {
   homeRouteConfig,
 } from "shared/routes";
 import FullPageLoading from "shared/pages/full-page-loading.page";
-import BootStrapper from "./boot-strapper";
 
 const NotFoundPage = lazy(() => import("shared/pages/not-found.page"));
 
@@ -20,11 +19,6 @@ const UpdateUserPage = lazy(() => import("modules/itsd/page/update-user.page"));
 const DetailUserPage = lazy(() => import("modules/itsd/page/detail-user.page"));
 
 const AppRoutes = (props) => {
-  useEffect(() => {
-    BootStrapper.initialize();
-    BootStrapper.setDataToRunApplicationInLocal();
-  }, []);
-
   return (
     <BrowserRouter>
       <Suspense fallback={<FullPageLoading />}>

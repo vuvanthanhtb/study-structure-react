@@ -1,7 +1,8 @@
-import React, { useState, createContext, useContext } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { useState, createContext, useContext } from "react";
 
 const SidebarContext = createContext({});
-
+export const useSidebarContext = () => useContext(SidebarContext);
 export const SidebarProvider = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -23,5 +24,3 @@ export const SidebarProvider = ({ children }) => {
     </SidebarContext.Provider>
   );
 };
-
-export const useSidebarContext = () => useContext(SidebarContext);

@@ -1,20 +1,23 @@
 import { Navigate } from "react-router-dom";
-
-import { getCurrentToken } from "shared/cache";
+import { useDispatch, useSelector } from "react-redux";
 import { homeRouteConfig } from "shared/routes";
 import GBBank from "shared/assets/auth/background-login.svg";
 import FormSubmit from "shared/form/form-submit";
 import { config, initialValues } from "./config.login";
 import { validationSchema } from "./validation.login";
 import styles from "./_login.module.scss";
+import { loginUser } from "../../slice.auth";
 
 const LoginPage = () => {
-  if (getCurrentToken()) {
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.auth);
+
+  if (currentUser) {
     return <Navigate to={homeRouteConfig.home.path} />;
   }
 
   const onSubmit = (values) => {
-    console.log(values);
+    dispatch(loginUser(values));
   };
 
   return (

@@ -1,22 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authService from "./service.auth";
+import BootStrapper from "app/routes/boot-strapper";
 
 const service = new authService();
 
 export const loginUser = createAsyncThunk("auth/loginUser", async (payload) => {
+  const condition = true;
+  if (condition) {
+    BootStrapper.initialize();
+    BootStrapper.setDataToRunApplicationInLocal(
+      payload.username,
+      payload.password
+    );
+    return {
+      username: payload.username,
+      roles: ["admin", "user"],
+    };
+  }
   const data = await service.loginUser(payload);
+
   return data;
 });
 
-export const logoutCurrentUser = createAsyncThunk(
-  "auth/logoutCurrentUser",
-  async (payload) => {
-    await service.create(payload);
-  }
-);
-
 const initialState = {
-  user: null,
+  currentUser: null,
 };
 
 const auth = createSlice({
@@ -25,7 +32,7 @@ const auth = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      state.user = action.payload;
+      state.currentUser = action.payload;
     });
   },
 });

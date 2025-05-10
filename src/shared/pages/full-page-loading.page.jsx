@@ -17,7 +17,7 @@ const FullPageLoading = (props) => {
   }
   // }
 
-  let opacityNum = 0.9;
+  let opacityNum = 0.3;
   if (opacity) {
     // allow caller to change opacity
     opacityNum = opacity;

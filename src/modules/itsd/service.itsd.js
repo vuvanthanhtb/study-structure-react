@@ -56,19 +56,13 @@ class ItsdService {
     }
   };
 
-  search = async (data) => {
-    try {
-      const response = await this.#service.methodRequest(
-        apiPath.search,
-        data,
-        SearchUserModel,
-        API_METHODS.GET
-      );
-      return response;
-    } catch (error) {
-      return error;
-    }
-  };
+  search = (data) =>
+    this.#service.methodRequest(
+      apiPath.search,
+      data,
+      SearchUserModel,
+      API_METHODS.GET
+    );
 }
 
 export default ItsdService;
