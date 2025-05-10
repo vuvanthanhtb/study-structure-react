@@ -4,12 +4,8 @@ import { searchUsers } from "../slice.itsd";
 import Table from "shared/table";
 import { tableSearchConfig } from "../config.itsd";
 
-const SearchUsersPage = (props) => {
+const SearchUsersPage = () => {
   const dispatch = useDispatch();
-
-  console.log(999999, props);
-  
-
   useEffect(() => {
     dispatch(searchUsers({}));
   }, []);

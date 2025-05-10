@@ -8,14 +8,16 @@ const ButtonComponent = (props) => {
     disabled = false,
     icon = null,
     className = {},
+    type = "button",
+    style
   } = props;
-  console.log({className});
-  
   return (
     <button
       className={clsx(styles["button-container"], className)}
       onClick={onClick}
       disabled={disabled}
+      type={type}
+      style={style}
     >
       {icon ? <img src={icon} alt="button" /> : ""}
       {title}

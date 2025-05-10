@@ -6,7 +6,6 @@ const service = new ItsdService();
 export const searchUsers = createAsyncThunk(
   "itsd/searchUsers",
   async (payload) => {
-    console.log(999999, "Fetching tickets...");
     const data = await service.search(payload);
     return data;
   }

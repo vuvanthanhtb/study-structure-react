@@ -10,11 +10,8 @@ class ApiProxyService {
   };
 
   constructor() {
-    const baseURL = import.meta.env.VITE_API_URL;
-    console.log(11111111, {baseURL});
-    
     this.#axios_instance = axios.create({
-      baseURL,
+      baseURL: import.meta.env.VITE_API_URL,
       timeout: 10 * 60 * 1000,
       withCredentials: true,
     });

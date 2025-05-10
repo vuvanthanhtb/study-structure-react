@@ -1,16 +1,8 @@
 .private-container {
-  .main-container {
     display: flex;
     flex-direction: row;
+  .main-container {
+  
     border-radius: 8px;
-
-    .main-container__sidebar {
-      width: 300px;
-    }
-
-    .main-container__content {
-      width: calc(100% - 300px);
-      padding: 10px;
-    }
   }
 }

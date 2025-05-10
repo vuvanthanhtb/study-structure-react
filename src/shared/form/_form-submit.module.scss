@@ -1,0 +1,22 @@
+.input-group {
+  .input-form {
+    border-right: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+  }
+
+  .input-form:hover {
+    box-shadow: none;
+  }
+
+
+}
+
+.btn-visible {
+  border: none;
+  background: transparent;
+
+  svg {
+    color: grey;
+  }
+}

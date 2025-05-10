@@ -1,5 +1,95 @@
 .sidebar-container {
   width: 100%;
-  min-height: calc(100vh - 80px);
+
+  min-height: 100vh;
   background: linear-gradient(181.81deg, #1D4289 0.97%, #00B78B 99.77%);
+
+
+
+
+
+
+
+  .sidebar-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+    img {
+      width: 50%;
+    }
+
+    button {
+      border: none;
+      background: transparent;
+
+      svg {
+        color: white;
+        font-size: 40px;
+      }
+    }
+  }
+
+  .sidebar-content {
+    div {
+      background: transparent;
+    }
+
+    .hr-custom {
+      border: 1px solid white;
+    }
+
+    li {
+      color: #ffffff87;
+      font-size: 17px;
+    }
+
+    a:hover {
+      background: transparent;
+      color: white;
+    }
+  }
+
+  .sidebar-content-collapsed {
+    div {
+      background: white;
+    }
+
+    .hr-custom {
+      border: 1px solid white;
+    }
+
+    li {
+      color: #ffffff87;
+      font-size: 17px;
+      background: transparent;
+
+      div {
+        // background-color: rgb(251, 252, 253);
+
+        span {
+          color: #0000007a;
+        }
+
+        span:hover {
+          color: black;
+        }
+      }
+
+      a {
+        color: grey;
+        background: transparent;
+
+        svg {
+          color: white;
+        }
+      }
+
+      a:hover {
+        color: black;
+        background: #ffffff17;
+      }
+    }
+  }
 }

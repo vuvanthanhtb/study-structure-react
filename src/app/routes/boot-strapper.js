@@ -11,12 +11,15 @@ class BootStrapper {
 
   static async setDataToRunApplicationInLocal() {
     console.log("Setting data to run application in local");
-    setCurrentUserRoles(["admin", "user"]);
-    setCurrentToken("dG9rZW4gcmVhY3RqCg==");
-    setCurrentUser({
-      username: "admin",
-      password: "1234",
-    });
+    const condition = false;
+    if (condition) {
+      setCurrentUserRoles(["admin", "user"]);
+      setCurrentToken("dG9rZW4gcmVhY3RqCg==");
+      setCurrentUser({
+        username: "admin",
+        password: "1234",
+      });
+    }
   }
 }
 

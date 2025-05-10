@@ -12,7 +12,7 @@ import BootStrapper from "./boot-strapper";
 
 const NotFoundPage = lazy(() => import("shared/pages/not-found.page"));
 
-const LoginPage = lazy(() => import("modules/auth/page/login.page"));
+const LoginPage = lazy(() => import("modules/auth/page/login"));
 const HomePage = lazy(() => import("modules/home/page"));
 const SearchUsersPage = lazy(() =>
   import("modules/itsd/page/search-users.page")
@@ -26,9 +26,6 @@ const AppRoutes = (props) => {
     BootStrapper.initialize();
     BootStrapper.setDataToRunApplicationInLocal();
   }, []);
-
-  console.log(11111, props);
-  
 
   return (
     <BrowserRouter>
