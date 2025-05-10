@@ -1,7 +1,9 @@
+@import "styles/_variables.scss";
+
 .button-container {
   width: 120px;
   height: 44px;
-  background: #00B74F;
+  background: $primary-color;
   color: #FFFFFF;
   border: none;
   border-radius: 4px;

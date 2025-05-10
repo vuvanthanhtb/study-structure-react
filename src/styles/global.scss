@@ -1,6 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
+@import "./variables";
 
-// $primary-color: #007bff;
 // $secondary-color: #6c757d;
 // $success-color: #28a745;
 // $error-color: #dc3545;
@@ -21,8 +21,10 @@ div#root {
 }
 
 button.MuiButtonBase-root.MuiPaginationItem-root.MuiPaginationItem-text.MuiPaginationItem-rounded.Mui-selected.MuiPaginationItem-page {
-  background: inherit;
-  border: 2px solid #00B74F;
+  background: transparent;
+  border: 2px solid $primary-color;
+  border-radius: 5px;
+  box-shadow: none;
 }
 
 .form-control {

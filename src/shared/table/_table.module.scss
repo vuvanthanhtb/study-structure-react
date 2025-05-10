@@ -1,3 +1,5 @@
+@import "styles/_variables.scss";
+
 .table-container {
   background: white;
   padding: 20px;
@@ -32,7 +34,7 @@
 
     .btn-export {
       background: #EEFFF4;
-      color: #00B74F;
+      color: $primary-color;
       margin-left: 10px;
     }
   }
