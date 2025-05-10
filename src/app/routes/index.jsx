@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Outlet } from "react-router-dom";
 import PrivateLayout from "shared/layout/private.layout";
 import {
   userRouteConfig,
@@ -26,68 +27,74 @@ const AppRoutes = (props) => {
     BootStrapper.setDataToRunApplicationInLocal();
   }, []);
 
+  console.log(11111, props);
+  
+
   return (
-    <Suspense fallback={<FullPageLoading />}>
-      <Routes>
-        <Route path={authRouteConfig.login.path} element={<LoginPage />} />
-        <Route
-          path={homeRouteConfig.home.path}
-          element={
-            <PrivateLayout
-              allowedRoles={homeRouteConfig.home.roles}
-              title="Trang chủ"
-            >
-              <HomePage props={props} />
-            </PrivateLayout>
-          }
-        />
-        <Route
-          path={userRouteConfig.search.path}
-          element={
-            <PrivateLayout
-              allowedRoles={userRouteConfig.search.roles}
-              title="Tìm kiếm tài khoản"
-            >
-              <SearchUsersPage props={props} />
-            </PrivateLayout>
-          }
-        />
-        <Route
-          path={userRouteConfig.create.path}
-          element={
-            <PrivateLayout
-              allowedRoles={userRouteConfig.create.roles}
-              title="Tạo mới tài khoản"
-            >
-              <CreateUserPage props={props} />
-            </PrivateLayout>
-          }
-        />
-        <Route
-          path={userRouteConfig.update.path}
-          element={
-            <PrivateLayout
-              allowedRoles={userRouteConfig.update.roles}
-              title="Cập nhật tài khoản"
-            >
-              <UpdateUserPage props={props} />
-            </PrivateLayout>
-          }
-        />
-        <Route
-          path={userRouteConfig.detail.path}
-          element={
-            <PrivateLayout
-              allowedRoles={userRouteConfig.detail.roles}
-              title="Thông tin chi tiết tài khoản"
-            >
-              <DetailUserPage props={props} />
-            </PrivateLayout>
-          }
-        />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Suspense>
+    <BrowserRouter>
+      <Suspense fallback={<FullPageLoading />}>
+        <Routes>
+          <Route path={authRouteConfig.login.path} element={<LoginPage />} />
+          <Route
+            path={homeRouteConfig.home.path}
+            element={
+              <PrivateLayout
+                allowedRoles={homeRouteConfig.home.roles}
+                title="Trang chủ"
+              >
+                <HomePage props={props} />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path={userRouteConfig.search.path}
+            element={
+              <PrivateLayout
+                allowedRoles={userRouteConfig.search.roles}
+                title="Tìm kiếm tài khoản"
+              >
+                <SearchUsersPage props={props} />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path={userRouteConfig.create.path}
+            element={
+              <PrivateLayout
+                allowedRoles={userRouteConfig.create.roles}
+                title="Tạo mới tài khoản"
+              >
+                <CreateUserPage props={props} />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path={userRouteConfig.update.path}
+            element={
+              <PrivateLayout
+                allowedRoles={userRouteConfig.update.roles}
+                title="Cập nhật tài khoản"
+              >
+                <UpdateUserPage props={props} />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path={userRouteConfig.detail.path}
+            element={
+              <PrivateLayout
+                allowedRoles={userRouteConfig.detail.roles}
+                title="Thông tin chi tiết tài khoản"
+              >
+                <DetailUserPage props={props} />
+              </PrivateLayout>
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+      <Outlet />
+    </BrowserRouter>
   );
 };
 

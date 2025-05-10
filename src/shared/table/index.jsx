@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import ReactPaginate from "react-paginate";
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import { ATTR_TYPE } from "shared/utils";
 import { ButtonComponent } from "shared/components";
 import styles from "./_table.module.scss";
@@ -9,7 +10,7 @@ const Table = (props) => {
     stateName,
     nameSelect,
     tableConfig = [],
-    handlePageClick,
+    onPageChange,
     pageCount,
   } = props;
   const data = useSelector((state) => state[stateName][nameSelect]) || [];
@@ -54,24 +55,10 @@ const Table = (props) => {
       </table>
       <div className={styles["table-footer"]}>
         <div className={styles["table-footer__result"]}>1-25/ 500 kết quả</div>
-        <div>
-          <ReactPaginate
-            breakLabel="..."
-            nextLabel=">"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={5}
-            pageCount={pageCount}
-            previousLabel="<"
-            renderOnZeroPageCount={null}
-            containerClassName="pagination justify-content-center"
-            pageClassName="page-item"
-            pageLinkClassName="page-link"
-            previousClassName=""
-            previousLinkClassName="page-link"
-            nextClassName="page-item"
-            nextLinkClassName="page-link"
-            activeClassName="active"
-          />
+        <div className={styles["table-footer__paging"]}>
+          <Stack spacing={2}>
+            <Pagination count={10} shape="rounded" />
+          </Stack>
         </div>
       </div>
     </div>

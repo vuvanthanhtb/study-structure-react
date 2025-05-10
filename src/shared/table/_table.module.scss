@@ -46,5 +46,12 @@
       font-weight: 500;
       font-size: 16px;
     }
+
+    .table-footer__paging {
+      button.MuiButtonBase-root.MuiPaginationItem-root.MuiPaginationItem-text.MuiPaginationItem-rounded.Mui-selected.MuiPaginationItem-page {
+        background: inherit;
+        border: 1px solid green;
+      }
+    }
   }
 }
