@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import HomeIcon from "@mui/icons-material/Home";
 import ViewHeadlineIcon from "@mui/icons-material/ViewHeadline";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import AppIcon from "shared/assets/gb-bank-icon.svg";
 import { useSidebarContext } from "app/context/sidebar.context";
 import { homeRouteConfig } from "shared/routes";
 import { SIDEBAR_CONFIG } from "./sidebar.config";
@@ -80,8 +79,8 @@ const SidebarComponent = () => {
           </button>
         )}
         {!collapsed && (
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <img src={AppIcon} alt="GBBank" />
+          <div className={styles["logo"]}>
+            <img src="https://www.gpbank.com.vn/images/graphics/logo_site.png" alt="GBBank" />
             <button onClick={() => setCollapsed(true)}>
               <KeyboardArrowLeftIcon />
             </button>

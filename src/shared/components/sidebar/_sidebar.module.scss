@@ -1,8 +1,14 @@
 .sidebar-container {
   width: 100%;
-
   min-height: 100vh;
   background: linear-gradient(181.81deg, #1D4289 0.97%, #00B78B 99.77%);
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+  }
 
   .sidebar-header {
     display: flex;
@@ -12,6 +18,8 @@
 
     img {
       width: 50%;
+      margin-left: 28px;
+      margin-top: 15px;
     }
 
     button {
@@ -20,7 +28,7 @@
 
       svg {
         color: white;
-        font-size: 40px;
+        font-size: 35px;
       }
     }
   }

@@ -9,7 +9,8 @@
     width: calc(100vw - 500px);
 
     img {
-      width: 100%;
+      width: calc(100vw - 500px);
+      height: 100vh;
     }
   }
 
