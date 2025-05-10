@@ -56,11 +56,11 @@ class ItsdService {
     }
   };
 
-  search = async () => {
+  search = async (data) => {
     try {
       const response = await this.#service.methodRequest(
         apiPath.search,
-        null,
+        data,
         SearchUserModel,
         API_METHODS.GET
       );

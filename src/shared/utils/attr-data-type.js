@@ -10,4 +10,9 @@ export const ATTR_TYPE = {
   UNDEFINED: "undefined",
   SYMBOL: "symbol",
   BIGINT: "bigint",
+  BUTTON: "button",
+  BUTTON_REFRESH: "button_refresh",
+  BUTTON_EXPORT: "button_export",
+  BUTTON_SUBMIT: "button_submit",
+  PASSWORD: "password",
 };

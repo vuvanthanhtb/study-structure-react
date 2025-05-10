@@ -4,12 +4,6 @@
   min-height: 100vh;
   background: linear-gradient(181.81deg, #1D4289 0.97%, #00B78B 99.77%);
 
-
-
-
-
-
-
   .sidebar-header {
     display: flex;
     flex-direction: row;
@@ -41,13 +35,17 @@
     }
 
     li {
-      color: #ffffff87;
+      color: white;
       font-size: 17px;
     }
 
     a:hover {
-      background: transparent;
+      background: #ffffff14;
       color: white;
+    }
+
+    .active {
+      background: #ffffff14;
     }
   }
 

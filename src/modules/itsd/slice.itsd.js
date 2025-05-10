@@ -7,7 +7,13 @@ export const searchUsers = createAsyncThunk(
   "itsd/searchUsers",
   async (payload) => {
     const data = await service.search(payload);
-    return data;
+    return {
+      data,
+      pageSize: 25,
+      pageIndex: 2,
+      pageCount: 20,
+      total: 500,
+    }
   }
 );
 

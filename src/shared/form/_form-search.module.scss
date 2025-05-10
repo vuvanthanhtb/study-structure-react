@@ -1,0 +1,23 @@
+.form-search-container {
+  background: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  .form-content {
+    width: 100%;
+
+    .form-content-grid {
+      padding: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+}

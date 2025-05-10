@@ -7,6 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import ButtonComponent from "../components/button";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { ATTR_TYPE } from "shared/utils";
 import styles from "./_form-submit.module.scss";
 
 const FormSubmit = (props) => {
@@ -24,7 +25,7 @@ const FormSubmit = (props) => {
           <Form onSubmit={handleSubmit} noValidate>
             <Grid container spacing={2}>
               {config.map((item, index) => {
-                if (["text", "password"].includes(item.type)) {
+                if ([ATTR_TYPE.STRING, ATTR_TYPE.PASSWORD].includes(item.type)) {
                   return (
                     <Form.Group
                       as={Col}
@@ -34,7 +35,7 @@ const FormSubmit = (props) => {
                       controlId="validationFormik03"
                     >
                       <Form.Label>{item.label}</Form.Label>
-                      {item.type === "text" && (
+                      {item.type === ATTR_TYPE.STRING && (
                         <Form.Control
                           type={item.type}
                           placeholder={item?.placeholder}
@@ -45,7 +46,7 @@ const FormSubmit = (props) => {
                           className={styles["input-form"]}
                         />
                       )}
-                      {item.type === "password" && (
+                      {item.type === ATTR_TYPE.PASSWORD && (
                         <InputGroup hasValidation>
                           <Form.Control
                             type={showPassword ? "text" : item.type}
@@ -84,7 +85,7 @@ const FormSubmit = (props) => {
                   );
                 }
 
-                if (item.type === "button") {
+                if (item.type === ATTR_TYPE.BUTTON_SUBMIT) {
                   return (
                     <Grid
                       size={12}

@@ -42,6 +42,14 @@ export const getCurrentToken = () => {
   return getCache("TOKEN");
 };
 
+export const setCurrentRefreshToken = (data) => {
+  setCache("REFRESH_TOKEN", data);
+};
+
+export const getCurrentRefreshToken = () => {
+  return getCache("REFRESH_TOKEN");
+};
+
 export const hasAnyRequiredRole = (allowedRoles = []) => {
   if (allowedRoles.includes("ALL")) {
     return true;

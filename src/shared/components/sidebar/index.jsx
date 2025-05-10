@@ -1,15 +1,23 @@
 import styles from "./_sidebar.module.scss";
+import { useMatch, Link } from "react-router-dom";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import HomeIcon from "@mui/icons-material/Home";
-import PersonIcon from "@mui/icons-material/Person";
 import ViewHeadlineIcon from "@mui/icons-material/ViewHeadline";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import TopicIcon from '@mui/icons-material/Topic';
 import AppIcon from "shared/assets/gb-bank-icon.svg";
 import { useSidebarContext } from "app/context/sidebar.context";
+import { homeRouteConfig } from "shared/routes";
+import { SIDEBAR_CONFIG } from "./sidebar.config";
 
 const SidebarComponent = () => {
   const { collapsed, setCollapsed } = useSidebarContext();
+
+  const isActivateUrl = (path) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const match = useMatch(path);
+    return !!match;
+  };
+
   return (
     <Sidebar
       backgroundColor="linear-gradient(181.81deg, #1D4289 0.97%, #00B78B 99.77%)"
@@ -39,23 +47,63 @@ const SidebarComponent = () => {
             : styles["sidebar-content"]
         }
       >
-        <Menu
-          menuItemStyles={{
-            button: {
-              [`&.active`]: {
-                backgroundColor: "#13395e",
-                color: "#b6c8d9",
-              },
-            },
-          }}
-        >
-          <MenuItem icon={<HomeIcon />}>Trang chủ</MenuItem>
+        <Menu>
+          <MenuItem
+            icon={<HomeIcon />}
+            component={<Link to={homeRouteConfig.home.path} />}
+            className={
+              isActivateUrl(homeRouteConfig.home.path) ? styles["active"] : ""
+            }
+          >
+            Trang chủ
+          </MenuItem>
           <hr className={styles["hr-custom"]} />
-          <SubMenu label="Quản lý tài khoản" icon={<PersonIcon />}>
-            <MenuItem> Pie charts </MenuItem>
-            <MenuItem> Line charts </MenuItem>
-          </SubMenu>
-          <MenuItem icon={<TopicIcon />}>Documentation</MenuItem>
+          {SIDEBAR_CONFIG.map((item, index) => {
+            if (!item.isActivate) {
+              return null;
+            }
+
+            if (item.paths.length !== 0) {
+              return (
+                <SubMenu
+                  label={item.label}
+                  icon={item.icon}
+                  key={`sidebar-${9999 + index}`}
+                >
+                  {item.paths.map((el, idx) => {
+                    if (!el.isActivate) {
+                      return null;
+                    }
+
+                    const active = isActivateUrl(el.path);
+
+                    return (
+                      <MenuItem
+                        key={`sidebar-${9999 + index}-${idx}`}
+                        className={active ? styles["active"] : ""}
+                        component={<Link to={el.path} />}
+                      >
+                        {el.label}
+                      </MenuItem>
+                    );
+                  })}
+                </SubMenu>
+              );
+            }
+
+            const active = isActivateUrl(item.path);
+
+            return (
+              <MenuItem
+                icon={item.icon}
+                key={`sidebar-${9999 + index}`}
+                className={active ? styles["active"] : ""}
+                component={<Link to={item.path} />}
+              >
+                {item.label}
+              </MenuItem>
+            );
+          })}
         </Menu>
       </div>
     </Sidebar>

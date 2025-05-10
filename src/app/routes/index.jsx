@@ -14,9 +14,7 @@ const NotFoundPage = lazy(() => import("shared/pages/not-found.page"));
 
 const LoginPage = lazy(() => import("modules/auth/page/login"));
 const HomePage = lazy(() => import("modules/home/page"));
-const SearchUsersPage = lazy(() =>
-  import("modules/itsd/page/search-users.page")
-);
+const SearchUsersPage = lazy(() => import("modules/itsd/page/search-users"));
 const CreateUserPage = lazy(() => import("modules/itsd/page/create-user.page"));
 const UpdateUserPage = lazy(() => import("modules/itsd/page/update-user.page"));
 const DetailUserPage = lazy(() => import("modules/itsd/page/detail-user.page"));

@@ -9,7 +9,13 @@ class RequestService {
     this.#service = new ApiProxyService();
   }
 
-  async methodRequest(endpoint, data, model, method = API_METHODS.GET, headers = {}) {
+  async methodRequest(
+    endpoint,
+    data,
+    model,
+    method = API_METHODS.GET,
+    headers = {}
+  ) {
     try {
       const body = parseRequest(model, data);
       const response = await this.#service.methodRequest(

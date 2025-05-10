@@ -1,19 +1,14 @@
 import { useSelector } from "react-redux";
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 import { ATTR_TYPE } from "shared/utils";
 import { ButtonComponent } from "shared/components";
 import styles from "./_table.module.scss";
 
 const Table = (props) => {
-  const {
-    stateName,
-    nameSelect,
-    tableConfig = [],
-    onPageChange,
-    pageCount,
-  } = props;
-  const data = useSelector((state) => state[stateName][nameSelect]) || [];
+  const { stateName, nameSelect, tableConfig = [], onPageChange } = props;
+  const { data, pageCount, total, pageIndex, pageSize } =
+    useSelector((state) => state[stateName][nameSelect]) || [];
 
   return (
     <div className={styles["table-container"]}>
@@ -54,10 +49,19 @@ const Table = (props) => {
         </tbody>
       </table>
       <div className={styles["table-footer"]}>
-        <div className={styles["table-footer__result"]}>1-25/ 500 kết quả</div>
+        <div className={styles["table-footer__result"]}>
+          {pageIndex}-{pageSize * pageIndex}/ {total} kết quả
+        </div>
         <div className={styles["table-footer__paging"]}>
           <Stack spacing={2}>
-            <Pagination count={10} shape="rounded" />
+            <Pagination
+              count={pageCount}
+              shape="rounded"
+              onChange={(event, page) => {
+                event.preventDefault();
+                return onPageChange(page);
+              }}
+            />
           </Stack>
         </div>
       </div>

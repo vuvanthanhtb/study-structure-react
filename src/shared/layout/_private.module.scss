@@ -1,8 +1,12 @@
 .private-container {
     display: flex;
     flex-direction: row;
+    width: 100vw;
   .main-container {
-  
-    border-radius: 8px;
+    width: 100vw;
+
+    .main-container__main {
+      padding: 20px;
+    }
   }
 }

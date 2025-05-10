@@ -1,20 +1,22 @@
+import { ATTR_TYPE } from "shared/utils";
+
 export const config = [
   {
-    type: "text",
+    type: ATTR_TYPE.STRING,
     label: "Tài khoản",
     name: "username",
     required: true,
     size: 12,
   },
   {
-    type: "password",
+    type: ATTR_TYPE.PASSWORD,
     label: "Mật khẩu",
     name: "password",
     required: true,
     size: 12,
   },
   {
-    type: "button",
+    type: ATTR_TYPE.BUTTON_SUBMIT,
     child: [
       {
         type: "submit",

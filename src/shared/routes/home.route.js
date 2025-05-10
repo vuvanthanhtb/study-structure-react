@@ -1,6 +1,6 @@
 export const homeRouteConfig = {
   home: {
-    path: "/home",
+    path: "/",
     roles: ["ALL"],
   },
 };

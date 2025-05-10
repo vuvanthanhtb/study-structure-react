@@ -4,7 +4,7 @@ class AttrModel {
   constructor(
     service,
     client,
-    isRequired,
+    isRequired = false,
     type = ATTR_TYPE.STRING,
     format = DATE_FORMAT_YYYY_MM_DD_HH_MM
   ) {
