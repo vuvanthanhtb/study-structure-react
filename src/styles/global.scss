@@ -19,3 +19,8 @@
 div#root {
   background-color: #8080802b;
 }
+
+button.MuiButtonBase-root.MuiPaginationItem-root.MuiPaginationItem-text.MuiPaginationItem-rounded.Mui-selected.MuiPaginationItem-page {
+  background: inherit;
+  border: 2px solid #00B74F;
+}
