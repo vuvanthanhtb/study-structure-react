@@ -61,7 +61,7 @@ const FormSubmit = (props) => {
                             }
                             className={styles["input-form"]}
                           />
-                          {!errors[item.name] && (
+                          {values[item.name] && (
                             <InputGroup.Text id="inputGroupPrepend">
                               <button className={styles["btn-visible"]}>
                                 {showPassword ? (
