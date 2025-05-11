@@ -25,7 +25,9 @@ const FormSubmit = (props) => {
           <Form onSubmit={handleSubmit} noValidate>
             <Grid container spacing={2}>
               {config.map((item, index) => {
-                if ([ATTR_TYPE.STRING, ATTR_TYPE.PASSWORD].includes(item.type)) {
+                if (
+                  [ATTR_TYPE.STRING, ATTR_TYPE.PASSWORD].includes(item.type)
+                ) {
                   return (
                     <Form.Group
                       as={Col}
@@ -59,19 +61,21 @@ const FormSubmit = (props) => {
                             }
                             className={styles["input-form"]}
                           />
-                          <InputGroup.Text id="inputGroupPrepend">
-                            <button className={styles["btn-visible"]}>
-                              {showPassword ? (
-                                <RemoveRedEyeIcon
-                                  onClick={() => setShowPassword(false)}
-                                />
-                              ) : (
-                                <VisibilityOffIcon
-                                  onClick={() => setShowPassword(true)}
-                                />
-                              )}
-                            </button>
-                          </InputGroup.Text>
+                          {!errors[item.name] && (
+                            <InputGroup.Text id="inputGroupPrepend">
+                              <button className={styles["btn-visible"]}>
+                                {showPassword ? (
+                                  <RemoveRedEyeIcon
+                                    onClick={() => setShowPassword(false)}
+                                  />
+                                ) : (
+                                  <VisibilityOffIcon
+                                    onClick={() => setShowPassword(true)}
+                                  />
+                                )}
+                              </button>
+                            </InputGroup.Text>
+                          )}
                           <Form.Control.Feedback type="invalid">
                             {errors[item.name]}
                           </Form.Control.Feedback>
