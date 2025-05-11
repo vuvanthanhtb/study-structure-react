@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_METHODS, SYSTEM_BUSY } from "shared/utils";
+import { API_METHODS } from "shared/utils";
 import { authRouteConfig } from "shared/routes";
 import {
   getCurrentToken,
@@ -41,8 +41,6 @@ class ApiProxyService {
       (response) => response,
       async (error) => {
         const originalRequest = error.config;
-        console.log(9000000, originalRequest._retryCount);
-        
 
         // Kiểm tra lỗi 401 (Unauthorized) và chưa retry
         if (error.response?.status === 401 && !originalRequest._retry) {

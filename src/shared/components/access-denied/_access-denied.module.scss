@@ -1,0 +1,39 @@
+@import "styles/_variables.scss";
+
+.access-denied-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f8f8f8;
+}
+
+.access-denied-box {
+  text-align: center;
+  background: transparent;
+  padding: 40px;
+  color: #333;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #e53935;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+  }
+
+  .back-home-link {
+    text-decoration: none;
+    color: white;
+    background: $primary-color;
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

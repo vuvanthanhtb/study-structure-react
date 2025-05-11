@@ -1,5 +1,5 @@
 export const authRouteConfig = {
   login: {
-    path: "/login",
+    path: "/dang-nhap",
   },
 };

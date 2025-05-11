@@ -1,7 +1,7 @@
 export const userRouteConfig = {
   search: {
     path: "/user/search",
-    roles: ["admin", "user"],
+    roles: ["admin"],
   },
   create: {
     path: "/user/create",

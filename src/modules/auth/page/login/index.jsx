@@ -9,6 +9,7 @@ import { loginUser } from "../../slice.auth";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  document.title = "Đăng nhập";
   const { currentUser } = useSelector((state) => state.auth);
 
   if (currentUser) {
@@ -23,7 +24,7 @@ const LoginPage = () => {
     <div className={styles["login-container"]}>
       <div className={styles["login-container__left"]}>
         <img
-          src="https://www.gpbank.com.vn/images/slider/2040224a899f44da8942158be3b49ad3.jpg"
+          src="https://ib.gpbank.com.vn/GIB/Images/IB-Intro.jpg"
           alt="GBBank"
         />
       </div>

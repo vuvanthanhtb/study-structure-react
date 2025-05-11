@@ -3,12 +3,16 @@ import { Navigate } from "react-router-dom";
 import { HeaderComponent, SidebarComponent } from "../components";
 import { getCurrentUser, hasAnyRequiredRole } from "shared/cache";
 import { authRouteConfig } from "shared/routes";
+import AccessDenied from "../components/access-denied";
 import styles from "./_private.module.scss";
 
 const PrivateLayout = (props) => {
   const { allowedRoles, children, title = "App 12345" } = props;
   const currentUser = getCurrentUser();
   const isAllow = hasAnyRequiredRole(allowedRoles);
+
+  console.log(999999, isAllow);
+  
 
   useEffect(() => {
     document.title = title;
@@ -18,24 +22,15 @@ const PrivateLayout = (props) => {
     return <Navigate to={authRouteConfig.login.path} />;
   }
 
-  if (!isAllow) {
-    return (
-      <div>
-        <HeaderComponent />
-        <div>
-          Bạn không có quyền truy cập vào trang này, vui lòng liên hệ quản trị
-          viên
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={styles["private-container"]}>
       <SidebarComponent />
       <div className={styles["main-container"]}>
         <HeaderComponent {...props} />
-        <div className={styles["main-container__main"]}>{children}</div>
+        <div className={styles["main-container__main"]}>
+          {isAllow && children}
+          {!isAllow && <AccessDenied />}
+        </div>
       </div>
     </div>
   );
