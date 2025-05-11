@@ -22,7 +22,10 @@ const LoginPage = () => {
   return (
     <div className={styles["login-container"]}>
       <div className={styles["login-container__left"]}>
-        <img src="https://www.gpbank.com.vn/images/slider/2040224a899f44da8942158be3b49ad3.jpg" alt="GBBank" />
+        <img
+          src="https://www.gpbank.com.vn/images/slider/2040224a899f44da8942158be3b49ad3.jpg"
+          alt="GBBank"
+        />
       </div>
       <div className={styles["login-container__right"]}>
         <FormSubmit

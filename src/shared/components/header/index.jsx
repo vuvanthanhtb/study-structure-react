@@ -1,43 +1,37 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import clsx from "clsx";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Link, NavLink, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutCurrentUser } from "modules/common/slice.common";
+import { authRouteConfig } from "shared/routes";
 import styles from "./_header.module.scss";
 
 const HeaderComponent = () => {
-  const [expanded, setExpanded] = useState(false);
+  const dispatch = useDispatch();
+  const { hasCurrentUser } = useSelector((state) => state.common);
 
-  const toggleMenu = () => {
-    setExpanded(!expanded);
+  if (!hasCurrentUser) {
+    window.location.href = authRouteConfig.login.path;
+    return;
+  }
+
+  const handleLogout = () => {
+    dispatch(logoutCurrentUser());
   };
 
-  const closeMenu = () => {
-    setExpanded(false);
-  };
   return (
     <Navbar
       bg="light"
       variant="light"
       expand="md"
-      expanded={expanded}
       className={clsx(styles["header-container"], "shadow-sm")}
     >
       <Container>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          onClick={toggleMenu}
-          className="border-0"
-        >
-          {expanded ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </Navbar.Toggle>
-
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
             <Nav.Link
               as={NavLink}
               to="/"
-              onClick={closeMenu}
               className="mx-2"
               activeClassName="text-primary"
             >
@@ -46,7 +40,6 @@ const HeaderComponent = () => {
             <Nav.Link
               as={NavLink}
               to="/about"
-              onClick={closeMenu}
               className="mx-2"
               activeClassName="text-primary"
             >
@@ -55,7 +48,6 @@ const HeaderComponent = () => {
             <Nav.Link
               as={NavLink}
               to="/services"
-              onClick={closeMenu}
               className="mx-2"
               activeClassName="text-primary"
             >
@@ -64,25 +56,22 @@ const HeaderComponent = () => {
             <Nav.Link
               as={NavLink}
               to="/contact"
-              onClick={closeMenu}
               className="mx-2"
               activeClassName="text-primary"
             >
               Contact
             </Nav.Link>
             <NavDropdown
-                title={`Hi, Thanh`}
-                id="user-dropdown"
-                className="mx-2"
-              >
-                <NavDropdown.Item as={Link} to="/profile" onClick={closeMenu}>
-                  Profile
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item onClick={() => { closeMenu(); }}>
-                  Thoát
-                </NavDropdown.Item>
-              </NavDropdown>
+              title={`Hi, Thanh`}
+              id="user-dropdown"
+              className="mx-2"
+            >
+              <NavDropdown.Item as={Link} to="/profile">
+                Profile
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={handleLogout}>Thoát</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

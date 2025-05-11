@@ -34,7 +34,7 @@ const PrivateLayout = (props) => {
     <div className={styles["private-container"]}>
       <SidebarComponent />
       <div className={styles["main-container"]}>
-        <HeaderComponent />
+        <HeaderComponent {...props} />
         <div className={styles["main-container__main"]}>{children}</div>
       </div>
     </div>
